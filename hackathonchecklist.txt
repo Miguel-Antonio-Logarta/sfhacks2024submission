@@ -1,0 +1,15 @@
+1. Install the Google Maps API React Package [DONE]
+2. Get the Search bar working on /maps [DONE]
+3. Send request data to Google API [DONE]
+4. Get response back [DONE]
+5. Send request to DB to find nearby parking spots 
+6. Recieve response and display markers [DONE]
+
+@vis.gl/react-google-maps
+
+When clicking the listing, center the map on the coordinates, then open a side bar that allows you to rent the spot
+Same behavior happens when you click on the marker
+
+map moving places [DONE]
+
+search bar from the homepage [DONE]
