@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Distribute items evenly along the main axis */
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+
+.nav-link:hover {
+  font-weight: bold;
+}
+.left-links {
+  display: flex; /* Use flexbox for left links */
+  align-items: center; /* Align items vertically */
+}
+
+.right-links {
+  display: flex; /* Use flexbox for right links */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #343a40;
+  margin-left: 30px; /* Add some space between links */
+}
+
+.home-icon {
+  width: 24px; /* Adjust the width of the icon */
+  height: 24px; /* Adjust the height of the icon */
+}
+
+
+
+

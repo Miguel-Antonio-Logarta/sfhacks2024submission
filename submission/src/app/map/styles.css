@@ -1,0 +1,408 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    height: 64px;
+}
+
+.map-body {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-areas: "sidebar map";
+    height: calc(100vh - 64px);
+}
+
+.map {
+    grid-area: map;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    overflow: scroll;
+}
+
+.listing-search {
+    /* grid-area: listing-search; */
+    z-index: 2;
+    /* height: 60px; */
+    background: white;
+    display: flex;
+    /* align-items: center; */
+    justify-content: stretch;
+    padding: 16px;
+    border-bottom: 1px solid #e5ecf4;
+    box-shadow: 5px 0 8px rgba(0, 0, 0, 0.1); /* horizontal-offset vertical-offset blur spread color */
+    flex-flow: column;
+}
+
+.listing-search input {
+    height: 100%;
+    border: none;
+    outline: none;
+}
+
+.listing-search-input {
+    /* justify-self: stretch; */
+    width: 100%;
+    border: 1px solid #e5ecf4;
+    display: flex;
+    flex-direction: row;
+}
+
+.listing-search-input input {
+    flex-grow: 1;
+}
+
+.listing-search-input .icon {
+    /* margin-right: ; */
+}
+
+.listing-search-input:focus-within {
+    outline: solid #8a4fff;
+    outline-width: 1px;
+    border: 1px solid white;
+    transition: outline;
+}
+
+.listing-search-input:focus-within .purple-icon{
+    color: #8a4fff;
+}
+
+.listing {
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    /* Box Shadow */
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.1); /* horizontal-offset vertical-offset blur spread color */
+
+    /* Optional: Add transition for smooth effect */
+    /* transition: box-shadow 0.3s ease; */
+    z-index: 1;
+}
+
+.listing-item {
+    border: 1px solid #e5ecf4;
+    /* border-radius: 8px; */
+    padding: 8px 24px 8px 8px;
+    background: white;
+    display: grid;
+    /* grid-template-areas: "image street price"
+                         "image rating rating"
+                         "image details details"; */
+    grid-template-areas: "image info";
+    grid-template-columns: 128px auto;
+    /* grid-template-columns: 1fr 2fr 1fr; */
+    min-height: 144px;
+    max-height: 180px;
+    column-gap: 12px;
+    box-shadow: 5px 0 8px rgba(0, 0, 0, 0.1); /* horizontal-offset vertical-offset blur spread color */
+    transition-property: border, color; /* Specify properties to transition */
+    transition-duration: 0.3s; /* Duration of the transition */
+    transition-timing-function: ease-in-out; /* Timing function for the transition */
+}
+
+.listing-item:hover {
+    cursor: pointer;
+    border: 1px solid #c3bef7;
+    transition-property: border; /* Specify properties to transition */
+    transition-duration: 0.1s; /* Duration of the transition */
+    transition-timing-function: ease-in-out; /* Timing function for the transition */
+}
+
+.listing-item:hover .street-address {
+    color:#8a4fff;
+    transition-property: color; /* Specify properties to transition */
+    transition-duration: 0.1s; /* Duration of the transition */
+    transition-timing-function: ease-in-out; /* Timing function for the transition */
+    text-decoration: underline;
+}
+
+.parking-spot-info {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+}
+
+.primary-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "street price";
+}
+
+.parking-image {
+    grid-area: image;
+    align-self: center;
+    object-fit: cover;
+    height: 128px;
+    width: 128px;
+    margin-right: 16px;
+    /* border-radius: 8px; */
+}
+
+.parking-rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    grid-area: rating;
+}
+
+.street-address {
+    grid-area: street;
+    margin-bottom: 0;
+    transition-property: border, color; /* Specify properties to transition */
+    transition-duration: 0.3s; /* Duration of the transition */
+    transition-timing-function: ease-in-out; /* Timing function for the transition */
+    /* font-size: 1.6rem; */
+}
+
+.price {
+    grid-area: price;
+    color: #2eb715;
+}
+
+.parking-status {
+    grid-area: details;
+    text-overflow: ellipsis;
+}
+
+.purple-icon {
+    color: #c3bef7;
+}
+
+.remaining-space {
+    align-self: stretch;
+}
+
+/* Google autocomplete search bar styling */
+.pac-container {
+    border: 1px solid #8a4fff;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    width: 530px;
+    padding: 8px;
+    transform: translateY(10px);
+}
+
+.pac-icon {
+    color: #c3bef7;
+}
+
+.pac-item:hover .pac-icon {
+    color: #8a4fff;
+}
+
+.filters-input-group {
+    display: flex;
+    flex-direction: row;
+    margin-top: 16px;
+    justify-content: space-between;
+    /* justify-self: stretch; */
+    padding: 0 16px;
+    gap: 32px;
+}
+
+.filters-input-group input {
+    flex-grow: 1;
+    align-self: center;
+}
+
+/********** Range Input Styles **********/
+/*Range Reset*/
+.radius-input {
+    -webkit-appearance: none;
+     appearance: none;
+     background: transparent;
+     cursor: pointer;
+     width: 15rem;
+ }
+ 
+ /* Removes default focus */
+ .radius-input:focus {
+   outline: none;
+ }
+ 
+ /***** Chrome, Safari, Opera and Edge Chromium styles *****/
+ /* slider track */
+ .radius-input::-webkit-slider-runnable-track {
+    background-color: #c3bef7;
+    border-radius: 0.4rem;
+    height: 0.4rem;  
+ }
+ 
+ /* slider thumb */
+ .radius-input::-webkit-slider-thumb {
+   -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -12px; /* Centers thumb on the track */
+ 
+    /*custom styles*/
+    background-color: #8a4fff;
+    height: 2rem;
+    width: 1rem;
+ }
+ 
+ .radius-input:focus::-webkit-slider-thumb {   
+   border: 1px solid #c3bef7;
+   outline: 3px solid #c3bef7;
+   outline-offset: 0.125rem; 
+ }
+ 
+ /******** Firefox styles ********/
+ /* slider track */
+ .radius-input::-moz-range-track {
+    background-color: #c3bef7;
+    border-radius: 0.4rem;
+    height: 0.4rem;
+ }
+ 
+ /* slider thumb */
+ .radius-input::-moz-range-thumb {
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 0; /*Removes default border-radius that FF applies*/
+ 
+    /*custom styles*/
+    background-color: #8a4fff;
+    height: 1.5rem;
+    width: 0.5rem;
+ }
+ 
+ .radius-input:focus::-moz-range-thumb {
+   border: 1px solid #c3bef7;
+   outline: 3px solid #c3bef7;
+   outline-offset: 0.125rem; 
+ }
+
+.sample {
+    color: #22ccff;
+    color: #1e89a1;
+    color: #0f677a;
+    color: #5006e2;
+    color: #8a4fff;
+    color: #c3bef7;
+}
+
+.car-icon {
+    font-size: 20px;
+}
+
+.active-listing {
+    cursor: pointer;
+    border: 1px solid #8a4fff;
+    background: #c3bef7;
+    transition-property: border; /* Specify properties to transition */
+    transition-duration: 0.1s; /* Duration of the transition */
+    transition-timing-function: ease-in-out; /* Timing function for the transition */
+}
+
+.active-listing .purple-icon {
+    color: white;
+}
+
+.active-listing .street-listing {
+    color: white;
+}
+
+.driveway-modal-container {
+    position: fixed;
+    /* background: red; */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.driveway-modal {
+    width: 800px;
+    /* height: 500px; */
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #5006e2;
+    background-color: white;
+    /* display: grid; */
+    transform: translateY(-200px);
+    transform: translateX(-450px);
+    /* Box Shadow */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1); /* horizontal-offset vertical-offset blur spread color */
+    display: grid;
+    grid-template-areas: "close close close"
+                         "image info info"
+                         "reserve reserve reserve";
+    grid-template-rows: min-content 1fr min-content;
+    gap: 16px;
+}
+
+.driveway-modal .purple-icon {
+    font-size: 32px;
+    
+}
+
+.driveway-close {
+    background: none;
+    border: none;
+    grid-area: close;
+    justify-self: end;
+    /* outline: none; */
+}
+
+.driveway-modal .listing-image {
+    aspect-ratio: 1/1;
+    width: 256px;
+    /* align-self: center; */
+}
+
+.driveway-modal .listing-information {
+    grid-area: info;
+    display: grid;
+    grid-template-areas: "street price"
+                         "rating rating"
+                         "description description";
+    grid-template-rows: min-content min-content 1fr;
+    gap: 8px;
+}
+
+.driveway-modal .street-address {
+    grid-area: street;
+}
+.driveway-modal .price {
+    grid-area: price;
+}
+.driveway-modal .rating {
+    grid-area: rating;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.driveway-modal .description {
+    grid-area: description;
+}
+
+.reservation-buttons {
+    grid-area: reserve;
+    /* align-items: stretch; */
+    justify-content: center;
+    display: grid;
+}
+
+.reservation-buttons button {
+    height: 60px;
+    border-radius: 8px;
+    background-color: #5006e2;
+    color: white;
+    padding: 16px 32px;
+    font-weight: bold;
+}

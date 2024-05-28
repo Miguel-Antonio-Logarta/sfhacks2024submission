@@ -1,1 +1,39 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 googleapikey.txt
+
+# dependencies
+submission/node_modules
+submission/.pnp
+submission/.pnp.js
+submission/.yarn/install-state.gz
+
+# testing
+submission/coverage
+
+# next.js
+submission/.next/
+submission/out/
+
+# production
+submission/build
+
+# misc
+submission/.DS_Store
+submission/*.pem
+
+# debug
+submission/npm-debug.log*
+submission/yarn-debug.log*
+submission/yarn-error.log*
+
+# local env files
+submission/.env*.local
+
+# vercel
+submission/.vercel
+
+# typescript
+submission/*.tsbuildinfo
+submission/next-env.d.ts
+
+submission/hackathon2024/.env
